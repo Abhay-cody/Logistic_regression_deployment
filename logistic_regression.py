@@ -1,73 +1,71 @@
-# Commented out IPython magic to ensure Python compatibility.
 import streamlit as st
 import pandas as pd
+import numpy as np
+import math
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from matplotlib import pyplot as plt
-#%matplotlib inline
 
-df = pd.read_csv("insurance_data.csv")
-df.head()
+st.title("Insurance Purchase Prediction using Logistic Regression")
 
-plt.scatter(df.age,df.bought_insurance,marker='+',color='red')
+# 1. Load Data
+# Note: Ensure "insurance_data.csv" is in the same directory as this script!
+try:
+    df = pd.read_csv("insurance_data.csv")
+    st.write("### Dataset Preview", df.head())
+except FileNotFoundError:
+    st.error("Please place 'insurance_data.csv' in the same folder as this script.")
+    st.stop()
 
-from sklearn.model_selection import train_test_split
+# 2. Plotting the Data in Streamlit
+st.write("### Age vs Insurance Purchase Visualization")
+fig, ax = plt.subplots()
+ax.scatter(df.age, df.bought_insurance, marker='+', color='red')
+ax.set_xlabel("Age")
+ax.set_ylabel("Bought Insurance (1=Yes, 0=No)")
+st.pyplot(fig)
 
-X_train, X_test, y_train, y_test = train_test_split(df[['age']],df.bought_insurance,train_size=0.8)
+# 3. Train Test Split (Locked with random_state for consistency)
+X_train, X_test, y_train, y_test = train_test_split(
+    df[['age']], 
+    df.bought_insurance, 
+    train_size=0.8, 
+    random_state=42
+)
 
-# X_test
-
-from sklearn.linear_model import LogisticRegression
+# 4. Model Training
 model = LogisticRegression()
-
 model.fit(X_train, y_train)
 
-X_test
+# 5. Model Evaluation
+st.write("### Model Performance")
+st.write(f"**Model Accuracy Score:** {model.score(X_test, y_test):.2f}")
 
-y_predicted = model.predict(X_test)
+# Extracting dynamic coefficients so manual math always matches the model
+m = model.coef_[0][0]
+b = model.intercept_[0]
 
-model.predict_proba(X_test)
+st.write("### Model Parameters")
+st.write(f"**Coefficient (m):** {m:.4f}")
+st.write(f"**Intercept (b):** {b:.4f}")
 
-model.score(X_test,y_test)
-
-y_predicted
-
-X_test
-
-"""**model.coef_ indicates value of m in y=m*x + b equation**"""
-
-model.coef_
-
-"""**model.intercept_ indicates value of b in y=m*x + b equation**"""
-
-model.intercept_
-
-"""**Lets defined sigmoid function now and do the math with hand**"""
-
-import math
+# 6. Manual Math & Sigmoid Function
 def sigmoid(x):
-  return 1 / (1 + math.exp(-x))
+    return 1 / (1 + math.exp(-x))
 
 def prediction_function(age):
-    z = 0.042 * age - 1.53 # 0.04150133 ~ 0.042 and -1.52726963 ~ -1.53
+    # y = mx + b
+    z = m * age + b 
     y = sigmoid(z)
     return y
 
-age = 35
-prediction_function(age)
+# 7. Interactive Prediction UI
+st.write("### Try Your Own Prediction")
+user_age = st.number_input("Enter Age:", min_value=1, max_value=100, value=35)
+probability = prediction_function(user_age)
 
-"""**0.485 is less than 0.5 which means person with 35 age will *not* buy insurance**"""
-
-age = 43
-prediction_function(age)
-
-"""**0.485 is more than 0.5 which means person with 43 will buy the insurance**
-
-<h2 style="color:purple">Exercise</h2>
-
-Download employee retention dataset from here: https://www.kaggle.com/giripujar/hr-analytics.
-1. Now do some exploratory data analysis to figure out which variables have direct and clear impact on employee retention (i.e. whether they leave the company or continue to work)
-2. Plot bar charts showing impact of employee salaries on retention
-3. Plot bar charts showing corelation between department and employee retention
-4. Now build logistic regression model using variables that were narrowed down in step 1
-5. Measure the accuracy of the model
-"""
+st.write(f"Calculated Probability: **{probability:.3f}**")
+if probability >= 0.5:
+    st.success(f"With a probability of {probability:.3f}, a person aged {user_age} **will** buy insurance.")
+else:
+    st.warning(f"With a probability of {probability:.3f}, a person aged {user_age} **will not** buy insurance.")
