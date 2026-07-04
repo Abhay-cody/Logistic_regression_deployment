@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.learn_model import LogisticRegression
 from matplotlib import pyplot as plt
-%matplotlib inline
+#%matplotlib inline
 
 df = pd.read_csv("/content/sample_data/insurance_data.csv")
 df.head()
