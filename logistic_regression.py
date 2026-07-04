@@ -1,7 +1,7 @@
 # Commented out IPython magic to ensure Python compatibility.
 import streamlit as st
 import pandas as pd
-from sklearn.learn_model import LogisticRegression
+from sklearn.logistic_model import LogisticRegression
 from matplotlib import pyplot as plt
 #%matplotlib inline
 
