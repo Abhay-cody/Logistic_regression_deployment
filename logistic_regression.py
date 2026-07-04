@@ -17,13 +17,13 @@ except FileNotFoundError:
     st.error("Please place 'insurance_data.csv' in the same folder as this script.")
     st.stop()
 
-# # 2. Plotting the Data in Streamlit
-# st.write("### Age vs Insurance Purchase Visualization")
-# fig, ax = plt.subplots()
-# ax.scatter(df.age, df.bought_insurance, marker='+', color='red')
-# ax.set_xlabel("Age")
-# ax.set_ylabel("Bought Insurance (1=Yes, 0=No)")
-# st.pyplot(fig)
+# 2. Plotting the Data in Streamlit
+st.write("### Age vs Insurance Purchase Visualization")
+fig, ax = plt.subplots()
+ax.scatter(df.age, df.bought_insurance, marker='+', color='red')
+ax.set_xlabel("Age")
+ax.set_ylabel("Bought Insurance (1=Yes, 0=No)")
+st.pyplot(fig)
 
 # 3. Train Test Split (Locked with random_state for consistency)
 X_train, X_test, y_train, y_test = train_test_split(
