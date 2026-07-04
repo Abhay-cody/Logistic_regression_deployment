@@ -6,7 +6,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from matplotlib import pyplot as plt
 
-st.title("Insurance Purchase Prediction using Logistic Regression")
+st.title("Insurance Purchase Prediction")
+st.write("Predict Insurance Purchase using Logistic Regression")
 
 # 1. Load Data
 # Note: Ensure "insurance_data.csv" is in the same directory as this script!
