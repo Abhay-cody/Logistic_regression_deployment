@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 st.set_page_config(
 
 #Page Configuration
-st.set_page_configuration(
+st.set_page_config(
     page_title="Insurance Purchase Prediction",
     page_icon="💵",
     layout="centered"
