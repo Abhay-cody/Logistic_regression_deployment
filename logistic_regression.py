@@ -5,6 +5,14 @@ import math
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from matplotlib import pyplot as plt
+st.set_page_config(
+
+#Page Configuration
+st.set_page_configuration(
+    page_title="Insurance Purchase Prediction",
+    page_icon="💵",
+    layout="centered"
+)
 
 st.title("Insurance Purchase Prediction")
 st.write("Predict Insurance Purchase using Logistic Regression")
