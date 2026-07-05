@@ -77,3 +77,31 @@ if probability >= 0.5:
     st.success(f"With a probability of {probability:.3f}, a person aged {user_age} **will** buy insurance.")
 else:
     st.warning(f"With a probability of {probability:.3f}, a person aged {user_age} **will not** buy insurance.")
+
+# ==============================
+# Sidebar Branding
+# ==============================
+
+st.markdown("---")
+
+st.markdown("""
+<div style='text-align:center;'>
+
+### 🚀 Developed by <span style="color:#4CAF50;">ABHAY KUMAR GUPTA</span>
+
+<a href="https://github.com/Abhay-cody" target="_blank">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+&nbsp;
+
+<a href="https://www.linkedin.com/in/abhay-kumar-gupta-104a18397" target="_blank">
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+</a>
+
+<br><br>
+
+⭐ Thank you for visiting this Machine Learning Project.
+
+</div>
+""", unsafe_allow_html=True)
