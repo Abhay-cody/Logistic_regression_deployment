@@ -74,52 +74,86 @@ else:
 # Sidebar Branding
 # ==============================
 
-st.markdown("---")
-
 st.markdown("""
 <style>
-.profile-card{
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    padding:30px;
-    border-radius:18px;
+
+.profile-container{
+    background: linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0px 15px 40px rgba(0,0,0,0.35);
     color:white;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    margin-top:30px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.profile-title{
     text-align:center;
-    margin-top:20px;
-}
-
-.profile-name{
-    font-size:30px;
+    font-size:34px;
     font-weight:700;
-    color:#ffffff;
+    margin-bottom:5px;
 }
 
-.profile-role{
-    font-size:18px;
+.profile-subtitle{
+    text-align:center;
     color:#cbd5e1;
-    margin-bottom:20px;
+    font-size:18px;
+    margin-bottom:30px;
 }
 
-.profile-desc{
-    font-size:15px;
+.profile-description{
+    text-align:center;
+    font-size:16px;
+    color:#f8fafc;
+    line-height:1.8;
+    max-width:900px;
+    margin:auto;
+    margin-bottom:35px;
+}
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    width:170px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat-number{
+    font-size:30px;
+    font-weight:bold;
+    color:#38bdf8;
+}
+
+.stat-text{
     color:#e2e8f0;
-    line-height:1.7;
-    margin-bottom:25px;
 }
 
-.social-btn{
+.buttons{
+    text-align:center;
+}
+
+.btn{
     display:inline-block;
+    margin:10px;
+    padding:14px 28px;
+    border-radius:12px;
     text-decoration:none;
-    padding:12px 24px;
-    margin:8px;
-    border-radius:10px;
-    font-weight:600;
-    font-size:15px;
+    font-size:16px;
+    font-weight:bold;
     transition:0.3s;
 }
 
 .github{
-    background:#24292F;
+    background:#181717;
     color:white !important;
 }
 
@@ -128,41 +162,76 @@ st.markdown("""
     color:white !important;
 }
 
-.social-btn:hover{
-    transform:translateY(-3px);
-    opacity:0.9;
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0px);
+    }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<div class="profile-card">
+<div class="profile-container">
 
-<div class="profile-name">
+<div class="profile-title">
 👨‍💻 Abhay Kumar Gupta
 </div>
 
-<div class="profile-role">
-Machine Learning Engineer | Deep Learning Enthusiast | Python Developer
+<div class="profile-subtitle">
+Machine Learning Engineer • Deep Learning Enthusiast • Python Developer
 </div>
 
-<div class="profile-desc">
-Passionate about developing intelligent machine learning and deep learning
-applications with a focus on solving real-world problems. Experienced in
-Python, Scikit-learn, TensorFlow, Streamlit, Data Analysis, and AI model deployment.
+<div class="profile-description">
+Thank you for exploring this project! I enjoy building intelligent machine learning
+solutions that transform real-world data into actionable insights. My interests include
+Machine Learning, Deep Learning, Computer Vision, Data Analytics, and AI-powered Web Applications.
 </div>
 
-<a class="social-btn github"
+<div class="stats">
+
+<div class="stat-card">
+<div class="stat-number">10+</div>
+<div class="stat-text">ML Projects</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">Python</div>
+<div class="stat-text">Primary Language</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">AI</div>
+<div class="stat-text">Machine Learning & Deep Learning</div>
+</div>
+
+</div>
+
+<div class="buttons">
+
+<a class="btn github"
 href="https://github.com/Abhay-cody"
 target="_blank">
-🐙 View GitHub Profile
+🐙 View GitHub
 </a>
 
-<a class="social-btn linkedin"
+<a class="btn linkedin"
 href="https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
 target="_blank">
 💼 Connect on LinkedIn
 </a>
+
+</div>
 
 </div>
 """, unsafe_allow_html=True)
