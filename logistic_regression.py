@@ -77,23 +77,92 @@ else:
 st.markdown("---")
 
 st.markdown("""
-<div style='text-align:center;'>
+<style>
+.profile-card{
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    padding:30px;
+    border-radius:18px;
+    color:white;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    text-align:center;
+    margin-top:20px;
+}
 
-### 🚀 Developed by <span style="color:#4CAF50;">ABHAY KUMAR GUPTA</span>
+.profile-name{
+    font-size:30px;
+    font-weight:700;
+    color:#ffffff;
+}
 
-<a href="https://github.com/Abhay-cody" target="_blank">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+.profile-role{
+    font-size:18px;
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.profile-desc{
+    font-size:15px;
+    color:#e2e8f0;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.social-btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:12px 24px;
+    margin:8px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.github{
+    background:#24292F;
+    color:white !important;
+}
+
+.linkedin{
+    background:#0A66C2;
+    color:white !important;
+}
+
+.social-btn:hover{
+    transform:translateY(-3px);
+    opacity:0.9;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="profile-card">
+
+<div class="profile-name">
+👨‍💻 Abhay Kumar Gupta
+</div>
+
+<div class="profile-role">
+Machine Learning Engineer | Deep Learning Enthusiast | Python Developer
+</div>
+
+<div class="profile-desc">
+Passionate about developing intelligent machine learning and deep learning
+applications with a focus on solving real-world problems. Experienced in
+Python, Scikit-learn, TensorFlow, Streamlit, Data Analysis, and AI model deployment.
+</div>
+
+<a class="social-btn github"
+href="https://github.com/Abhay-cody"
+target="_blank">
+🐙 View GitHub Profile
 </a>
 
-&nbsp;
-
-<a href="https://www.linkedin.com/in/abhay-kumar-gupta-104a18397" target="_blank">
-<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+<a class="social-btn linkedin"
+href="https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
+target="_blank">
+💼 Connect on LinkedIn
 </a>
-
-<br><br>
-
-⭐ Thank you for visiting this Machine Learning Project.
 
 </div>
 """, unsafe_allow_html=True)
